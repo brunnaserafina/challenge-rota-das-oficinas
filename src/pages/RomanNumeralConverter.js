@@ -66,6 +66,7 @@ export default function RomanNumeralConverter() {
   return (
     <Background>
       <Header />
+
       <Wrapper>
         <h1>Conversor de números romanos</h1>
 
@@ -106,11 +107,18 @@ const Background = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 767px) {
+    img {
+      width: 90vw;
+    }
+  }
 `;
 
 const Wrapper = styled.div`
   margin-top: 15vh;
   width: 470px;
+  
 
   h1 {
     text-transform: uppercase;
@@ -132,6 +140,7 @@ const Wrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   }
 
   span {
@@ -158,5 +167,19 @@ const Wrapper = styled.div`
 
   button:hover {
     transform: scale(1.05);
+  }
+
+  @media (max-width: 767px) {
+    width: 90vw;
+
+    > div span {
+      display: flex;
+      flex-direction: column;
+    }
+
+    button {
+      margin-top: 5px;
+      width: 90%;
+    }
   }
 `;

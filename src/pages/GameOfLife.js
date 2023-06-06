@@ -69,50 +69,46 @@ export default function GameOfLife() {
   return (
     <Wrapper>
       <Header />
-      <Button
-        onClick={() => {
-          setRunning(!running);
-          if (!running) {
-            runningRef.current = true;
-            runSimulation();
-          }
-        }}
-      >
-        {running ? "Parar" : "Iniciar"}
-      </Button>
+      <ButtonContainer>
+        <Button
+          onClick={() => {
+            setRunning(!running);
+            if (!running) {
+              runningRef.current = true;
+              runSimulation();
+            }
+          }}
+        >
+          {running ? "Stop" : "Start"}
+        </Button>
 
-      <Button
-        onClick={() => {
-          const rows = [];
-          for (let i = 0; i < numRows; i++) {
-            rows.push(
-              Array.from(Array(numCols), () => (Math.random() > 0.7 ? 1 : 0))
-            );
-          }
+        <Button
+          onClick={() => {
+            const rows = [];
+            for (let i = 0; i < numRows; i++) {
+              rows.push(
+                Array.from(Array(numCols), () => (Math.random() > 0.7 ? 1 : 0))
+              );
+            }
 
-          setGrid(rows);
-        }}
-      >
-        Aleatório
-      </Button>
+            setGrid(rows);
+          }}
+        >
+          Random
+        </Button>
 
-      <Button
-        onClick={() => {
-          setGrid(generateEmptyGrid());
-        }}
-      >
-        Limpar
-      </Button>
-
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: `repeat(${numCols}, 20px)`,
-        }}
-      >
+        <Button
+          onClick={() => {
+            setGrid(generateEmptyGrid());
+          }}
+        >
+          Clear
+        </Button>
+      </ButtonContainer>
+      <GridContainer>
         {grid.map((rows, i) =>
           rows.map((col, k) => (
-            <div
+            <Cell
               key={`${i}-${k}`}
               onClick={() => {
                 const newGrid = produce(grid, (gridCopy) => {
@@ -120,23 +116,31 @@ export default function GameOfLife() {
                 });
                 setGrid(newGrid);
               }}
-              style={{
-                width: 20,
-                height: 20,
-                backgroundColor: grid[i][k] ? "#93e7d3" : undefined,
-                border: "solid 0.5px #999999",
-              }}
+              alive={grid[i][k]}
             />
           ))
         )}
-      </div>
+      </GridContainer>
     </Wrapper>
   );
 }
 
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
+
 const Wrapper = styled.div`
   background-color: #7e7e7e;
   margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const Button = styled.button`
@@ -147,4 +151,29 @@ const Button = styled.button`
   border-radius: 5px;
   margin: 5px 5px 5px 0;
   cursor: pointer;
+`;
+
+const GridContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(${numCols}, 20px);
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(35, 20px);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(18, 20px);
+  }
+`;
+
+const Cell = styled.div`
+  width: 20px;
+  height: 20px;
+  background-color: ${({ alive }) => (alive ? "var(--green)" : undefined)};
+  border: solid 0.5px #999999;
+
+  @media (max-width: 768px) {
+    width: 15px;
+    height: 15px;
+  }
 `;

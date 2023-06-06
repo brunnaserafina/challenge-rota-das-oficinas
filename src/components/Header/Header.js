@@ -52,6 +52,7 @@ const Wrapper = styled.div`
   position: fixed;
   top: 0;
   left: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 
   > a {
     margin-left: 30px;
@@ -60,7 +61,7 @@ const Wrapper = styled.div`
     text-decoration: none;
     color: var(--dark-green);
     font-weight: 600;
-    font-size: px;
+    font-size: 16px;
   }
 
   > a:hover {
@@ -78,11 +79,23 @@ const Wrapper = styled.div`
     color: var(--dark-green);
     font-weight: 600;
     margin-right: 10px;
+    font-size: 16px;
   }
 
   h5 {
-    font-size: 18px;
+    font-size: 16px;
     margin-left: 3px;
+  }
+
+  @media (max-width: 767px) {
+    a {
+      margin-left: 15px;
+    }
+
+    p,
+    h5 {
+      display: none;
+    }
   }
 `;
 

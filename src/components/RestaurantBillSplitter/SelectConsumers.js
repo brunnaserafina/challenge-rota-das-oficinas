@@ -222,6 +222,10 @@ const SelectCostumersAndProducts = styled.div`
     display: flex;
     flex-direction: column;
   }
+
+  @media (max-width: 400px) {
+    width: 95vw;
+  }
 `;
 
 const ExpensesResult = styled.div`
@@ -245,6 +249,10 @@ const ExpensesResult = styled.div`
   > div > div {
     display: flex;
     justify-content: space-between;
+  }
+
+  @media (max-width: 400px) {
+    width: 95vw;
   }
 `;
 

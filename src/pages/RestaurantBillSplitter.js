@@ -210,6 +210,12 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media (max-width: 767px) {
+    img {
+      width: 90vw;
+    }
+  }
 `;
 
 const Title = styled.h1`
@@ -241,20 +247,39 @@ const BackgroundForm = styled.div`
   button:hover {
     transform: scale(1.02);
   }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+  }
+
+  @media (max-width: 767px) {
+    width: 90vw;
+  }
 `;
 
 const InputProduct = styled.div`
   width: 100%;
   margin-right: 5px;
+
+  @media (max-width: 767px) {
+    width: 60%;
+  }
 `;
 
 const InputValue = styled.div`
   width: 60px !important;
   margin-right: 5px;
+
+  @media (max-width: 767px) {
+    width: 30%;
+  }
 `;
 
 const InputQuantity = styled.div`
   width: 35px !important;
+
+  @media (max-width: 767px) {
+    width: 10%;
+  }
 `;
 
 const InputCustomer = styled.div`
@@ -313,5 +338,16 @@ const Form = styled.form`
   div {
     display: flex;
     flex-direction: column;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+  }
+
+  @media (max-width: 767px) {
+    width: 90vw;
+
+    > button {
+      width: 90vw;
+    }
   }
 `;

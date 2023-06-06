@@ -15,7 +15,7 @@ export default function Homepage() {
           <span>
             <TypeWritter text="Programação" delay={1300} hideCursor />
           </span>
-        </h1>   
+        </h1>
         <p>
           Olá, eu sou a Brunna Serafina! Este foi o teste desenvolvido por mim
           com o framework React.js para a vaga de Estágio em Desenvolvimento Web
@@ -72,15 +72,66 @@ const Wrapper = styled.div`
     font-weight: 600;
     font-size: 15px;
   }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    h1 {
+      font-size: 38px;
+      height: 70px;
+    }
+
+    p {
+      width: 300px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    h1 {
+      font-size: 30px;
+      text-align: center;
+      height: fit-content;
+    }
+
+    p {
+      width: 80vw;
+      text-align: center;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    h5 {
+      text-align: center;
+    }
+
+    a {
+      text-align: center;
+    }
+  }
 `;
 
 const ImgLogo = styled.img`
   width: 180px;
   margin-bottom: 10px;
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 130px;
+  }
 `;
 
 const ImgIdea = styled.img`
-  width: 600px;
+  width: 550px;
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 420px;
+  }
+
+  @media (max-width: 767px) {
+    display: none;
+  }
 `;
 
 const rotateAnimation = keyframes`
