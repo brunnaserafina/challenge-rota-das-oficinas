@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import romanIllustration from "../assets/images/roman.png";
 
 const romanToArabicMap = {
   M: 1000,
@@ -63,51 +64,70 @@ export default function RomanNumeralConverter() {
   }
 
   return (
-    <Wrapper>
-      <h1>Conversor de números romanos</h1>
+    <Background>
+      <Wrapper>
+        <h1>Conversor de números romanos</h1>
 
-      <div>
-        <span>
-          <h2>Arábico: </h2>
-          <input
-            type="number"
-            value={arabicNumeral}
-            onChange={(e) => setArabicNumeral(e.target.value)}
-          />
-          <button onClick={() => convertToRoman(arabicNumeral)}>
-            Converter para romano
-          </button>
-        </span>
+        <div>
+          <span>
+            <h2>Arábico: </h2>
+            <input
+              type="number"
+              value={arabicNumeral}
+              onChange={(e) => setArabicNumeral(e.target.value)}
+              autoFocus
+            />
+            <button onClick={() => convertToRoman(arabicNumeral)}>
+              Converter para romano
+            </button>
+          </span>
 
-        <span>
-          <h2>Romano: </h2>
-          <input
-            type="text"
-            value={romanNumeral}
-            onChange={(e) => setRomanNumeral(e.target.value)}
-          />
-          <button onClick={convertToArabic}>Converter para arábico</button>
-        </span>
-      </div>
-    </Wrapper>
+          <span>
+            <h2>Romano: </h2>
+            <input
+              type="text"
+              value={romanNumeral}
+              onChange={(e) => setRomanNumeral(e.target.value)}
+            />
+            <button onClick={convertToArabic}>Converter para arábico</button>
+          </span>
+        </div>
+      </Wrapper>
+
+      <img src={romanIllustration} alt="Roman" />
+    </Background>
   );
 }
 
+const Background = styled.div`
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
 const Wrapper = styled.div`
+  margin-top: 15vh;
+
   h1 {
     text-transform: uppercase;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 20px;
     margin: 20px 0;
   }
 
   h2 {
     width: 60px;
+    font-weight: 600;
   }
 
   div {
-    background-color: #93e7d3;
+    background-color: var(--green);
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   span {
@@ -124,7 +144,7 @@ const Wrapper = styled.div`
   }
 
   button {
-    background-color: #000000;
+    background-color: var(--dark-green);
     color: white;
     border-radius: 5px;
     border: none;

@@ -6,9 +6,11 @@ body {
   justify-content: center;
   align-items: center;
   font-family: "Roboto", sans-serif;
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
 }
 
 * {
   box-sizing: border-box;
+  --green: #7ddda7;
+  --dark-green: #3a5a53;
 }
