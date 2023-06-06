@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import romanIllustration from "../assets/images/roman.png";
+import Header from "../components/Header/Header";
 
 const romanToArabicMap = {
   M: 1000,
@@ -65,6 +66,7 @@ export default function RomanNumeralConverter() {
 
   return (
     <Background>
+      <Header />
       <Wrapper>
         <h1>Conversor de números romanos</h1>
 

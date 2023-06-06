@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import SelectConsumers from "../components/RestaurantBillSplitter/SelectConsumers";
 import illustrationRestaurant from "../assets/images/restaurant.png";
+import Header from "../components/Header/Header";
 
 export default function RestaurantBillSplitter() {
   const [viewDescribeProducts, setViewDescribeProducts] = useState(true);
@@ -66,6 +67,7 @@ export default function RestaurantBillSplitter() {
 
   return (
     <Wrapper>
+      <Header />
       <div>
         <Title>Divisor de conta de restaurante</Title>
 

@@ -1,6 +1,7 @@
 import React, { useState, useRef, useCallback } from "react";
 import produce from "immer";
 import styled from "styled-components";
+import Header from "../components/Header/Header";
 
 const numRows = 50;
 const numCols = 50;
@@ -67,6 +68,7 @@ export default function GameOfLife() {
 
   return (
     <Wrapper>
+      <Header />
       <Button
         onClick={() => {
           setRunning(!running);
@@ -134,6 +136,7 @@ export default function GameOfLife() {
 
 const Wrapper = styled.div`
   background-color: #7e7e7e;
+  margin-top: 50px;
 `;
 
 const Button = styled.button`
