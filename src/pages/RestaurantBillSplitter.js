@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import SelectConsumers from "../components/RestaurantBillSplitter/SelectConsumers";
 
 export default function RestaurantBillSplitter() {
   const [viewDescribeProducts, setViewDescribeProducts] = useState(true);
@@ -140,7 +141,7 @@ export default function RestaurantBillSplitter() {
                       required
                     />
                   </div>
-                  
+
                   {customers.length > 2 && (
                     <ButtonRemove onClick={() => removeCustomer(customerIndex)}>
                       x
@@ -155,6 +156,14 @@ export default function RestaurantBillSplitter() {
 
           <button type="submit">Confirmar</button>
         </Form>
+      )}
+
+      {viewSelectConsumers && (
+        <SelectConsumers
+          totalValueProducts={totalValueProducts}
+          customers={customers}
+          products={products}
+        />
       )}
     </>
   );
