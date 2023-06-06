@@ -6,6 +6,7 @@ body {
   justify-content: center;
   align-items: center;
   font-family: "Roboto", sans-serif;
+  background-color: #F5F5F5;
 }
 
 * {
