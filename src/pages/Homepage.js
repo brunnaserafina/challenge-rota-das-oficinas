@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import pictureHomepage from "../assets/images/picture-homepage.png";
 import logoRotaDasOficinas from "../assets/images/logo-rota-das-oficinas.png";
 
@@ -9,7 +9,7 @@ export default function Homepage() {
       <div>
         <ImgLogo src={logoRotaDasOficinas} alt="Logo Rota das Oficinas" />
         <h1>
-          Teste de <br></br> programação
+            Teste de <br></br> Programação
         </h1>
         <p>
           Olá, eu sou a Brunna Serafina! Este foi o teste desenvolvido por mim
@@ -26,7 +26,7 @@ export default function Homepage() {
           <Link to={"/restaurant-bill"}>Divisão de conta de restaurante</Link>
         </ul>
       </div>
-      <ImgIdea src={pictureHomepage} alt="Idea" />
+      <AnimatedImgIdea src={pictureHomepage} alt="Idea" />
     </Wrapper>
   );
 }
@@ -76,4 +76,20 @@ const ImgLogo = styled.img`
 
 const ImgIdea = styled.img`
   width: 600px;
+`;
+
+const rotateAnimation = keyframes`
+  0% {
+    transform: rotate(-2.5deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-2.5deg);
+  }
+`;
+
+const AnimatedImgIdea = styled(ImgIdea)`
+  animation: ${rotateAnimation} 6s infinite linear;
 `;
