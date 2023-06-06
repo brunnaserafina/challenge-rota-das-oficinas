@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import GameOfLife from "./pages/GameOfLife";
 import RestaurantBillSplitter from "./pages/RestaurantBillSplitter";
 import RomanNumeralConverter from "./pages/RomanNumeralConverter";
 
@@ -15,6 +16,8 @@ export default function App() {
           path="/restaurant-bill"
           element={<RestaurantBillSplitter />}
         ></Route>
+
+        <Route path="/game-of-life" element={<GameOfLife />}></Route>
       </Routes>
     </Router>
   );
