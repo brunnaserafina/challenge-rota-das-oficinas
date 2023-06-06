@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { BsFillArrowLeftCircleFill } from "react-icons/bs";
 import styled from "styled-components";
 
 export default function SelectConsumers({
   totalValueProducts,
   customers,
   products,
+  setProducts,
+  setViewSelectConsumers,
 }) {
   const [customerExpenses, setCustomerExpenses] = useState({});
   const [viewExpensesResult, setViewExpensesResult] = useState(false);
@@ -63,6 +66,23 @@ export default function SelectConsumers({
     <Wrapper>
       {!viewExpensesResult && (
         <SelectCostumersAndProducts>
+          <IconBack
+            onClick={() => {
+              setViewSelectConsumers(false);
+              const updatedProducts = products.map((product) => ({
+                ...product,
+                consumersQuantity: 0,
+              }));
+
+              setProducts(updatedProducts);
+            }}
+          >
+            <BsFillArrowLeftCircleFill
+              color={"var(--dark-green)"}
+              fontSize={"20px"}
+            />
+          </IconBack>
+
           <h1>
             <span>Total:</span>
             <span>R${totalValueProducts.toFixed(2).replace(".", ",")}</span>
@@ -111,6 +131,23 @@ export default function SelectConsumers({
 
       {viewExpensesResult && (
         <ExpensesResult>
+          <IconBack
+            onClick={() => {
+              setViewExpensesResult(false);
+              const updatedProducts = products.map((product) => ({
+                ...product,
+                consumersQuantity: 0,
+              }));
+
+              setProducts(updatedProducts);
+            }}
+          >
+            <BsFillArrowLeftCircleFill
+              color={"var(--dark-green)"}
+              fontSize={"20px"}
+            />
+          </IconBack>
+
           <h1>Resultado</h1>
           <div>
             {customers.map((customer, index) => (
@@ -130,6 +167,11 @@ export default function SelectConsumers({
     </Wrapper>
   );
 }
+
+const IconBack = styled.span`
+  margin-bottom: 10px;
+  cursor: pointer;
+`;
 
 const Wrapper = styled.div`
   display: flex;
@@ -189,6 +231,7 @@ const ExpensesResult = styled.div`
   width: 350px;
 
   h1 {
+    margin-top: 10px;
     margin-bottom: 15px;
     text-transform: uppercase;
     font-weight: 600;

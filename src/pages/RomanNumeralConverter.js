@@ -153,4 +153,8 @@ const Wrapper = styled.div`
     height: 25px;
     cursor: pointer;
   }
+
+  button:hover {
+    transform: scale(1.05);
+  }
 `;

@@ -5,7 +5,6 @@ import illustrationRestaurant from "../assets/images/restaurant.png";
 import Header from "../components/Header/Header";
 
 export default function RestaurantBillSplitter() {
-  const [viewDescribeProducts, setViewDescribeProducts] = useState(true);
   const [viewSelectConsumers, setViewSelectConsumers] = useState(false);
   const [customers, setCustomers] = useState(["", ""]);
   const [products, setProducts] = useState([
@@ -61,7 +60,6 @@ export default function RestaurantBillSplitter() {
   const handleConfirm = (event) => {
     event.preventDefault();
     calculateTotalValue();
-    setViewDescribeProducts(false);
     setViewSelectConsumers(true);
   };
 
@@ -71,7 +69,7 @@ export default function RestaurantBillSplitter() {
       <div>
         <Title>Divisor de conta de restaurante</Title>
 
-        {viewDescribeProducts && (
+        {!viewSelectConsumers && (
           <Form onSubmit={handleConfirm}>
             <BackgroundForm>
               {products.map((product, productIndex) => (
@@ -88,6 +86,12 @@ export default function RestaurantBillSplitter() {
                         }
                         autoFocus
                         required
+                        onInvalid={(F) =>
+                          F.target.setCustomValidity(
+                            "Insira o nome do produto."
+                          )
+                        }
+                        onInput={(F) => F.target.setCustomValidity("")}
                       />
                     </InputProduct>
 
@@ -101,8 +105,15 @@ export default function RestaurantBillSplitter() {
                           handleProductChange(productIndex, event)
                         }
                         min="0"
+                        step=".01"
                         placeholder="R$"
                         required
+                        onInvalid={(F) =>
+                          F.target.setCustomValidity(
+                            "Insira o valor do produto."
+                          )
+                        }
+                        onInput={(F) => F.target.setCustomValidity("")}
                       />
                     </InputValue>
 
@@ -117,6 +128,12 @@ export default function RestaurantBillSplitter() {
                           handleProductChange(productIndex, event)
                         }
                         required
+                        onInvalid={(F) =>
+                          F.target.setCustomValidity(
+                            "Insira a quantidade do produto."
+                          )
+                        }
+                        onInput={(F) => F.target.setCustomValidity("")}
                       />
                     </InputQuantity>
 
@@ -146,6 +163,12 @@ export default function RestaurantBillSplitter() {
                           setCustomers(newCustomers);
                         }}
                         required
+                        onInvalid={(F) =>
+                          F.target.setCustomValidity(
+                            "Insira o nome do cliente."
+                          )
+                        }
+                        onInput={(F) => F.target.setCustomValidity("")}
                       />
                     </InputCustomer>
 
@@ -172,6 +195,8 @@ export default function RestaurantBillSplitter() {
             totalValueProducts={totalValueProducts}
             customers={customers}
             products={products}
+            setProducts={setProducts}
+            setViewSelectConsumers={setViewSelectConsumers}
           />
         )}
       </div>
@@ -211,6 +236,10 @@ const BackgroundForm = styled.div`
     border-radius: 5px;
     color: white;
     cursor: pointer;
+  }
+
+  button:hover {
+    transform: scale(1.02);
   }
 `;
 

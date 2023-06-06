@@ -19,7 +19,7 @@ export default function Homepage() {
         <p>
           Olá, eu sou a Brunna Serafina! Este foi o teste desenvolvido por mim
           com o framework React.js para a vaga de Estágio em Desenvolvimento Web
-          da empresa Rota das Oficinas
+          da empresa Rota das Oficinas.
         </p>
 
         <h5>Clique para conferir as tarefas desenvolvidas:</h5>

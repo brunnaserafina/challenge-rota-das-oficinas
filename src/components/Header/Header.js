@@ -11,18 +11,19 @@ export default function Header() {
 
   useEffect(() => {
     if (location.pathname === "/roman-numeral-converter") {
-      setPage("Roman Numeral Converter");
+      setPage("Conversor de números romanos");
     } else if (location.pathname === "/restaurant-bill") {
-      setPage("Restaurant Bill Divider");
+      setPage("Divisor de conta de restaurante");
     } else {
-      setPage("Game of Life");
+      setPage("Jogo da Vida");
     }
   }, [location.pathname]);
 
   return (
     <Wrapper>
       <Link to={"/"}>
-        <HiHome fontSize={"30px"} color={"var(--dark-green)"} />
+        <HiHome fontSize={"25px"} color={"var(--dark-green)"} />
+        <h5>Menu</h5>
       </Link>
 
       <div onClick={() => setViewMenu(!viewMenu)}>
@@ -77,6 +78,11 @@ const Wrapper = styled.div`
     color: var(--dark-green);
     font-weight: 600;
     margin-right: 10px;
+  }
+
+  h5 {
+    font-size: 18px;
+    margin-left: 3px;
   }
 `;
 
