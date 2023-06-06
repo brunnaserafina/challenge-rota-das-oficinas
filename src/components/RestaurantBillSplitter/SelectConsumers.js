@@ -63,7 +63,12 @@ export default function SelectConsumers({
     <Wrapper>
       {!viewExpensesResult && (
         <SelectCostumersAndProducts>
-          <h1>Total: R${totalValueProducts.toFixed(2).replace(".", ",")}</h1>
+          <h1>
+            <span>Total:</span>
+            <span>R${totalValueProducts.toFixed(2).replace(".", ",")}</span>
+          </h1>
+
+          <HorizontalBar></HorizontalBar>
 
           {customers.map((customer, customerIndex) => (
             <div key={customerIndex}>
@@ -132,10 +137,10 @@ const Wrapper = styled.div`
 `;
 
 const SelectCostumersAndProducts = styled.div`
-  width: 320px;
+  width: 350px;
   display: flex;
   flex-direction: column;
-  background-color: #93e7d3;
+  background-color: var(--green);
   border-radius: 10px;
   padding: 20px;
 
@@ -143,6 +148,9 @@ const SelectCostumersAndProducts = styled.div`
     margin-bottom: 5px;
     text-transform: uppercase;
     font-weight: 600;
+    font-size: 17px;
+    display: flex;
+    justify-content: space-between;
   }
 
   h2 {
@@ -158,7 +166,7 @@ const SelectCostumersAndProducts = styled.div`
 
   button {
     margin-top: 20px;
-    background-color: #3a5a53;
+    background-color: var(--dark-green);
     color: white;
     border-radius: 5px;
     border: none;
@@ -175,10 +183,10 @@ const SelectCostumersAndProducts = styled.div`
 `;
 
 const ExpensesResult = styled.div`
-  background-color: #93e7d3;
+  background-color: var(--green);
   padding: 20px;
   border-radius: 10px;
-  width: 325px;
+  width: 350px;
 
   h1 {
     margin-bottom: 15px;

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import SelectConsumers from "../components/RestaurantBillSplitter/SelectConsumers";
+import illustrationRestaurant from "../assets/images/restaurant.png";
 
 export default function RestaurantBillSplitter() {
   const [viewDescribeProducts, setViewDescribeProducts] = useState(true);
@@ -64,128 +65,145 @@ export default function RestaurantBillSplitter() {
   };
 
   return (
-    <>
-      <Title>Divisor de conta de restaurante</Title>
+    <Wrapper>
+      <div>
+        <Title>Divisor de conta de restaurante</Title>
 
-      {viewDescribeProducts && (
-        <Form onSubmit={handleConfirm}>
-          <BackgroundForm>
-            {products.map((product, productIndex) => (
-              <div key={productIndex}>
-                <span>
-                  <InputProduct>
-                    <label htmlFor="product">Produto:</label>
-                    <input
-                      type="text"
-                      name="product"
-                      value={product.product}
-                      onChange={(event) =>
-                        handleProductChange(productIndex, event)
-                      }
-                      required
-                    />
-                  </InputProduct>
+        {viewDescribeProducts && (
+          <Form onSubmit={handleConfirm}>
+            <BackgroundForm>
+              {products.map((product, productIndex) => (
+                <div key={productIndex}>
+                  <span>
+                    <InputProduct>
+                      <label htmlFor="product">Produto:</label>
+                      <input
+                        type="text"
+                        name="product"
+                        value={product.product}
+                        onChange={(event) =>
+                          handleProductChange(productIndex, event)
+                        }
+                        autoFocus
+                        required
+                      />
+                    </InputProduct>
 
-                  <InputValue>
-                    <label htmlFor="value">Valor:</label>
-                    <input
-                      type="number"
-                      name="value"
-                      value={product.value}
-                      onChange={(event) =>
-                        handleProductChange(productIndex, event)
-                      }
-                      required
-                    />
-                  </InputValue>
+                    <InputValue>
+                      <label htmlFor="value">Valor:</label>
+                      <input
+                        type="number"
+                        name="value"
+                        value={product.value}
+                        onChange={(event) =>
+                          handleProductChange(productIndex, event)
+                        }
+                        min="0"
+                        placeholder="R$"
+                        required
+                      />
+                    </InputValue>
 
-                  <InputQuantity>
-                    <label htmlFor="quantity">Qtd:</label>
-                    <input
-                      type="number"
-                      name="quantity"
-                      value={product.quantity}
-                      min="1"
-                      onChange={(event) =>
-                        handleProductChange(productIndex, event)
-                      }
-                      required
-                    />
-                  </InputQuantity>
+                    <InputQuantity>
+                      <label htmlFor="quantity">Qtd:</label>
+                      <input
+                        type="number"
+                        name="quantity"
+                        value={product.quantity}
+                        min="1"
+                        onChange={(event) =>
+                          handleProductChange(productIndex, event)
+                        }
+                        required
+                      />
+                    </InputQuantity>
 
-                  {products.length > 1 && (
-                    <ButtonRemove onClick={() => removeProduct(productIndex)}>
-                      x
-                    </ButtonRemove>
-                  )}
-                </span>
-              </div>
-            ))}
+                    {products.length > 1 && (
+                      <ButtonRemove onClick={() => removeProduct(productIndex)}>
+                        x
+                      </ButtonRemove>
+                    )}
+                  </span>
+                </div>
+              ))}
 
-            <button onClick={addProduct}>+ Adicionar produto</button>
+              <button onClick={addProduct}>+ Adicionar produto</button>
 
-            {customers.map((customer, customerIndex) => (
-              <div key={customerIndex}>
-                <span>
-                  <div>
-                    <label htmlFor="customer">Cliente:</label>
-                    <InputCustomer
-                      type="text"
-                      name="customer"
-                      value={customer}
-                      onChange={(event) => {
-                        const newCustomers = [...customers];
-                        newCustomers[customerIndex] = event.target.value;
-                        setCustomers(newCustomers);
-                      }}
-                      required
-                    />
-                  </div>
+              {customers.map((customer, customerIndex) => (
+                <div key={customerIndex}>
+                  <span>
+                    <InputCustomer>
+                      <label htmlFor="customer">Cliente:</label>
+                      <input
+                        type="text"
+                        name="customer"
+                        value={customer}
+                        onChange={(event) => {
+                          const newCustomers = [...customers];
+                          newCustomers[customerIndex] = event.target.value;
+                          setCustomers(newCustomers);
+                        }}
+                        required
+                      />
+                    </InputCustomer>
 
-                  {customers.length > 2 && (
-                    <ButtonRemove onClick={() => removeCustomer(customerIndex)}>
-                      x
-                    </ButtonRemove>
-                  )}
-                </span>
-              </div>
-            ))}
+                    {customers.length > 2 && (
+                      <ButtonRemove
+                        onClick={() => removeCustomer(customerIndex)}
+                      >
+                        x
+                      </ButtonRemove>
+                    )}
+                  </span>
+                </div>
+              ))}
 
-            <button onClick={addCustomer}>+ Adicionar cliente</button>
-          </BackgroundForm>
+              <button onClick={addCustomer}>+ Adicionar cliente</button>
+            </BackgroundForm>
 
-          <button type="submit">Confirmar</button>
-        </Form>
-      )}
+            <button type="submit">Confirmar</button>
+          </Form>
+        )}
 
-      {viewSelectConsumers && (
-        <SelectConsumers
-          totalValueProducts={totalValueProducts}
-          customers={customers}
-          products={products}
-        />
-      )}
-    </>
+        {viewSelectConsumers && (
+          <SelectConsumers
+            totalValueProducts={totalValueProducts}
+            customers={customers}
+            products={products}
+          />
+        )}
+      </div>
+      <img src={illustrationRestaurant} alt="Illustration" />
+    </Wrapper>
   );
 }
+
+const Wrapper = styled.div`
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
 
 const Title = styled.h1`
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 18px;
-  margin: 10px 0;
+  font-size: 20px;
   text-align: center;
+  margin-top: 12vh;
+  margin-bottom: 15px;
 `;
 
 const BackgroundForm = styled.div`
-  background-color: #93e7d3;
-  border: 1px solid #3a5a53;
+  background-color: var(--green);
+  border: 1px solid var(--dark-green);
   padding: 20px;
   width: 400px;
   border-radius: 5px 5px 0px 0px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 
   button {
-    background-color: #3a5a53;
+    background-color: var(--dark-green);
     border: none;
     height: 25px;
     border-radius: 5px;
@@ -208,7 +226,7 @@ const InputQuantity = styled.div`
   width: 35px !important;
 `;
 
-const InputCustomer = styled.input`
+const InputCustomer = styled.div`
   width: 100%;
 `;
 
@@ -225,7 +243,8 @@ const ButtonRemove = styled.button`
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-
+  justify-content: center;
+  align-items: center;
   padding: 20px;
 
   span {
@@ -236,7 +255,7 @@ const Form = styled.form`
   }
 
   input {
-    height: 20px;
+    height: 25px;
     border-radius: 5px;
     border: none;
   }
@@ -246,22 +265,22 @@ const Form = styled.form`
   }
 
   > button {
-    background-color: #3a5a53;
+    background-color: var(--dark-green);
     border: none;
     border-radius: 0px 0px 5px 5px;
     color: white;
     font-size: 15px;
     font-weight: 600;
     height: 25px;
-    width: 101%;
+    width: 400px;
     margin-top: 2px;
     margin-bottom: 10px;
     cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
   }
 
   div {
     display: flex;
-    width: 100%;
     flex-direction: column;
   }
 `;
