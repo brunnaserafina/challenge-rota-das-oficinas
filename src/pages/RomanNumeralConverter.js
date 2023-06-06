@@ -60,7 +60,6 @@ export default function RomanNumeralConverter() {
     }
 
     convertToRoman(arabicNumeralResult);
-
     setArabicNumeral(arabicNumeralResult);
   }
 
@@ -106,16 +105,19 @@ const Background = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
 `;
 
 const Wrapper = styled.div`
   margin-top: 15vh;
+  width: 470px;
 
   h1 {
     text-transform: uppercase;
     font-weight: 700;
     font-size: 20px;
     margin: 20px 0;
+    text-align: center;
   }
 
   h2 {
