@@ -1,70 +1,91 @@
-# Getting Started with Create React App
+<h1 align="left">Challenge Rota das Oficinas</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+###
 
-## Available Scripts
+<p align="left">Este é um website de um teste de programação contendo um Conversor de Números Romanos, Jogo da Vida de John
+Horton Conway e um Divisor de Conta de Restaurante.</p>
 
-In the project directory, you can run:
+###
 
-### `npm start`
+<div align="center"> 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<img src="https://github.com/brunnaserafina/challenge-rota-das-oficinas/assets/106851605/d38f9de5-5775-49cf-9308-a33eaef5a27e" />
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+</div> 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+###
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+###
 
-### `npm run eject`
+<br clear="both">
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### ⚙️ Funcionalidades
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Cabeçalho para navegar entre as páginas
+# 
+- Converter número arábico para romano
+- Converter número romano para arábico
+#
+- Selecionar células do jogo da vida
+- Limpar células do jogo da vida
+- Escolher modo aleatório para células do jogo da vida
+- Iniciar ou pausar jogo
+#
+- Descrever produto, valor, quantidade e clientes
+- Selecionar produto que cada cliente consumiu
+- Fechar conta visualizando o que foi consumido por cada um
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+###
 
-## Learn More
+<br />
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 🛠️ Tecnologias utilizadas
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+###
+  <img align="left" alt="react" height="30px" src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB" />
+   <img align="left" alt="react-router" height="30px" src="https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white" />
+   <img align="left" alt="axios" height="30px" src="https://camo.githubusercontent.com/02621d023c99135970b1abbfe932b6a6a0b2e42aaebedae5f8299fd88d9ce029/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6178696f732532302d2532333230323332612e7376673f267374796c653d666f722d7468652d626164676526636f6c6f723d696e666f726d6174696f6e616c" />
+   <img align="left" alt="axios" height="30px" src="https://camo.githubusercontent.com/41d7c6da357d2344cd832f0d738839951e0d43a23064154c07d80a67dd74c5f4/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f72656163742d69636f6e732532302d2532333230323332612e7376673f267374796c653d666f722d7468652d626164676526636f6c6f723d663238646337266c6f676f3d72656163742d69636f6e73266c6f676f436f6c6f723d253233363144414642" />
+   <img align="left" alt="styled-components" height="30px" src="https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white" />
 
-### Code Splitting
+###
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<br />
+<br />
+<br />
 
-### Analyzing the Bundle Size
+### ▶️ Rodando a aplicação
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+1. Clone este repositório em uma pasta de sua preferência:
 
-### Making a Progressive Web App
+```bash
+ $ git clone https://github.com/brunnaserafina/challenge-rota-das-oficinas.git
+```
+2. Navegue até o diretório do projeto:
+```bash
+ $ cd challenge-rota-das-oficinas
+```
+3. Instale as dependências:
+```bash
+ $ npm i
+```
+4. Você pode, opcionalmente, rodar o build para criar uma versão de produção da aplicação
+```bash
+ $ npm run build
+```
+5. Rode a aplicação:
+```bash
+ $ npm start
+```
+6. Por fim, acesse http://localhost:3000 no seu browser e selecione a tarefa de sua preferência!
+###
+<br />
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 🙇🏻‍♀️ Autora
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Por [@brunnaserafina](https://github.com/brunnaserafina)
